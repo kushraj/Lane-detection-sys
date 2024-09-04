@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lane Detection Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lane Detection Results</h1>
+        
+        <div class="images-row">
+            <div class="image-container">
+                <h2>Edge Detection Result:</h2>
+                <img src="{{ url_for('uploaded_file', filename=edges_img) }}" alt="Edges Image">
+            </div>
+
+            <div class="image-container">
+                <h2>Masked Edge Detection Result:</h2>
+                <img src="{{ url_for('uploaded_file', filename=masked_edges_img) }}" alt="Masked Edges Image">
+            </div>
+
+            <div class="image-container">
+                <h2>Final Lane Detection Result:</h2>
+                <img src="{{ url_for('uploaded_file', filename=output_img) }}" alt="Output Image">
+            </div>
+        </div>
+
+        <a href="{{ url_for('index') }}">Go back to upload another image</a>
+    </div>
+</body>
+</html>

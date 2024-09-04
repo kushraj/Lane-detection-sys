@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Lane Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Automated Rural Lane Detection System</h1>
+        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <button type="submit">Upload and Detect Lanes</button>
+        </form>
+
+        {% if filename %}
+        <div class="output">
+            <h2>Processed Image:</h2>
+            <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Detected Lanes">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
